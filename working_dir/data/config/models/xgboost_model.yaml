@@ -1,0 +1,60 @@
+model_description:
+  cross_validate: True
+  hyper_parameter_tuning: False
+  model_name: 'xgboost_model.joblib'
+  label_col_name: 'is_failed'
+
+model_hyper_tuning:
+  type: 'random'
+  n_estimators:
+    start: 10
+    end: 150
+    step: 40
+  max_features:
+    - 'auto'
+    - 'sqrt'
+  max_depth:
+    start: 5
+    end: 100
+    step: 20
+  min_samples_split:
+    start: 1
+    end: 20
+    step: 3
+    list_number:
+      - 2
+      - 5
+      - 10
+  min_samples_leaf:
+    start: 1
+    end: 20
+    step: 3
+    list_number:
+      - 1
+      - 2
+      - 4
+  bootstrap:
+    - True
+    - False
+  n_jobs: -1
+
+model_parameters:
+  objective: 'binary:logistic'
+  booster: gbtree
+  max_depth: 6
+  n_estimators: 2000
+  learning_rate: 0.01
+  subsample: 0.5
+  colsample_bytree: 0.5
+  colsample_bylevel: 0.5
+  random_state: 123
+  silent: True
+  n_jobs: 8
+  tree_method: 'hist'
+  grow_policy: 'lossguide'
+
+train_parameters:
+  eval_metric: 'auc'
+  early_stopping_rounds: 500
+  verbose: 200
+

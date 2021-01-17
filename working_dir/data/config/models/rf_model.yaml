@@ -1,0 +1,16 @@
+model_description:
+  cross_validate: True
+  hyper_parameter_tuning: True
+  model_name: 'rf_test.joblib'
+  label_col_name: 'is_failed'
+
+model_parameters:
+  n_estimators: 100
+  min_samples_split: 10
+  min_samples_leaf: 1
+  max_features: 'sqrt'
+  max_depth: 6
+  bootstrap: False
+  n_jobs: 4
+
+

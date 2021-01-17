@@ -1,0 +1,5 @@
+feature_drop:
+  - is_failed
+  - feat_02
+  - shipment_id
+  - created_time
